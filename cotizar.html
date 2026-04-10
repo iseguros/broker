@@ -170,39 +170,6 @@
             Enviar Información
         </button>
     </form>
-
-    <script>
-function enviarWhatsApp() {
-    // Tu número configurado (593 + tu número sin el 0)
-    const telefono = "593984101339"; 
-
-    // Captura los datos de los cuadros de texto
-    const nombre = document.getElementById('nombre').value;
-    const seguro = document.getElementById('seguro').value;
-    const mensaje = document.getElementById('mensaje').value;
-
-    // Validación básica para que no envíen mensajes vacíos
-    if (nombre === "" || seguro === "") {
-        alert("Por favor, llena tu nombre y el tipo de seguro.");
-        return;
-    }
-
-    // Formato del mensaje para WhatsApp
-    // %0A sirve para saltar de línea
-    const texto = "¡Hola iSeguros! 👋%0A" +
-                  "Deseo solicitar una cotización desde la web:%0A%0A" +
-                  "*Cliente:* " + nombre + "%0A" +
-                  "*Interés:* Seguro de " + seguro + "%0A" +
-                  "*Detalles:* " + mensaje;
-
-    // Crear el enlace final
-    const url = "https://wa.me/" + telefono + "?text=" + texto;
-
-    // Abrir WhatsApp en una pestaña nueva
-    window.open(url, '_blank');
-}
-</script>
-
     
 </body>
 </html>
