@@ -497,3 +497,18 @@ footer {
         height: 300px; /* Altura ideal para pantallas táctiles */
     }
 }
+
+/* =========================================
+   ESTILO LÍNEA ROJA (UNDERLINE)
+   ========================================= */
+.underline {
+    width: 60px;          /* Ancho de la línea */
+    height: 4px;          /* Grosor de la línea */
+    background-color: #ff4b2b; /* Color rojo de tu marca */
+    margin: 15px auto;    /* Margen: 15px arriba/abajo, auto para centrar */
+    border-radius: 2px;  /* Bordes redondeados opcionales */
+}
+
+/* Opcional: Para asegurar que el h1 y p tengan buen espacio */
+h1 { margin-bottom: 0; }
+p { margin-top: 0; }
