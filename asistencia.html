@@ -15,22 +15,27 @@
         .asistencia-hero-slim {
             background: var(--rojo);
             color: white;
-            padding: 30px 20px; /* Reducido de 60px a 30px */
+            padding: 20px 15px; /* Reducción de espacio */
             text-align: center;
             border-radius: 0 0 30px 30px;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             box-shadow: 0 10px 30px rgba(255, 75, 43, 0.2);
         }
 
         .asistencia-hero-slim h1 {
-            font-size: 1.8rem;
+            font-size: 1.4rem; /* Texto más pequeño */
             margin-bottom: 5px;
         }
 
-        /* Estilo del buscador solicitado */
+        .asistencia-hero-slim p {
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+        }
+
+        /* Estilo del buscador */
         .search-container {
-            max-width: 500px;
-            margin: 15px auto 0;
+            max-width: 400px;
+            margin: 10px auto 0;
             position: relative;
         }
 
@@ -44,11 +49,11 @@
 
         #busquedaAseguradora {
             width: 100%;
-            padding: 12px 15px 12px 45px;
+            padding: 10px 15px 10px 40px;
             border-radius: 30px;
             border: none;
             font-family: 'Poppins', sans-serif;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             outline: none;
         }
@@ -60,51 +65,102 @@
             margin-bottom: 50px;
         }
 
+        /* --- NUEVOS ESTILOS PARA DESPLIEGUE --- */
         .asistencia-card {
             background: white;
-            padding: 25px;
+            padding: 20px;
             border-radius: 15px;
             display: flex;
-            align-items: center;
-            justify-content: space-between;
+            flex-direction: column; /* Cambiado para permitir contenido abajo */
+            cursor: pointer;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             border-left: 6px solid var(--rojo);
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
+            overflow: hidden;
         }
 
-        .asistencia-card:hover {
-            transform: translateX(10px);
+        .card-main-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
         }
 
         .asistencia-info h3 {
             color: var(--azul-dark);
-            font-size: 1.2rem;
-            margin-bottom: 5px;
+            font-size: 1.1rem;
+            margin-bottom: 2px;
         }
 
         .asistencia-info p {
             font-weight: 700;
             color: #444;
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
 
-        .btn-call-now {
-            background: var(--rojo);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-decoration: none;
+        .btn-expand {
+            color: var(--rojo);
             font-size: 1.2rem;
             transition: 0.3s;
         }
 
-        .btn-call-now:hover {
-            background: var(--azul);
-            transform: scale(1.1);
+        /* Contenido oculto */
+        .info-desplegable {
+            max-height: 0;
+            opacity: 0;
+            transition: all 0.4s ease;
+            font-size: 0.85rem;
+        }
+
+        .asistencia-card.active {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .asistencia-card.active .info-desplegable {
+            max-height: 400px; /* Ajustar según contenido */
+            opacity: 1;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .asistencia-card.active .btn-expand {
+            transform: rotate(180deg);
+        }
+
+        .detalle-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        .detalle-item i {
+            margin-right: 8px;
+            color: var(--rojo);
+            width: 15px;
+        }
+
+        .link-aseguradora {
+            display: block;
+            margin: 15px 0 10px;
+            color: var(--azul);
+            text-decoration: none;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .btn-call-emergency {
+            display: block;
+            background: var(--rojo);
+            color: white;
+            text-align: center;
+            padding: 10px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
         }
 
         .extra-help {
@@ -146,52 +202,106 @@
     <main class="container">
         <div class="emergency-grid" id="emergencyGrid">
             
-            <div class="asistencia-card">
-                <div class="asistencia-info">
-                    <h3>AIG Metropolitana</h3>
-                    <p>1800 244 244</p>
+            <div class="asistencia-card" onclick="toggleCard(this)">
+                <div class="card-main-info">
+                    <div class="asistencia-info">
+                        <h3>AIG Metropolitana</h3>
+                        <p>1800 244 244</p>
+                    </div>
+                    <div class="btn-expand"><i class="fas fa-chevron-down"></i></div>
                 </div>
-                <a href="tel:1800244244" class="btn-call-now"><i class="fas fa-phone"></i></a>
+                <div class="info-desplegable">
+                    <div class="detalle-item"><p><i class="fas fa-truck-pickup"></i> Grúa/Asistencia:</p> <span>1800 244 244</span></div>
+                    <div class="detalle-item"><p><i class="fas fa-ambulance"></i> Emergencias:</p> <span>Llenar aquí</span></div>
+                    <div class="detalle-item"><p><i class="fas fa-clock"></i> Horario Oficina:</p> <span>Llenar aquí</span></div>
+                    <a href="#" target="_blank" class="link-aseguradora">Visitar Sitio Web <i class="fas fa-external-link-alt"></i></a>
+                    <a href="tel:1800244244" class="btn-call-emergency">Llamar a Emergencias</a>
+                </div>
             </div>
 
-            <div class="asistencia-card">
-                <div class="asistencia-info">
-                    <h3>SaludSA</h3>
-                    <p>1800 725 837</p>
+            <div class="asistencia-card" onclick="toggleCard(this)">
+                <div class="card-main-info">
+                    <div class="asistencia-info">
+                        <h3>SaludSA</h3>
+                        <p>1800 725 837</p>
+                    </div>
+                    <div class="btn-expand"><i class="fas fa-chevron-down"></i></div>
                 </div>
-                <a href="tel:1800725837" class="btn-call-now"><i class="fas fa-phone"></i></a>
+                <div class="info-desplegable">
+                    <div class="detalle-item"><p><i class="fas fa-truck-pickup"></i> Asistencia:</p> <span>1800 725 837</span></div>
+                    <div class="detalle-item"><p><i class="fas fa-ambulance"></i> Emergencias:</p> <span>Llenar aquí</span></div>
+                    <div class="detalle-item"><p><i class="fas fa-clock"></i> Horario Oficina:</p> <span>Llenar aquí</span></div>
+                    <a href="#" target="_blank" class="link-aseguradora">Visitar Sitio Web <i class="fas fa-external-link-alt"></i></a>
+                    <a href="tel:1800725837" class="btn-call-emergency">Llamar a Emergencias</a>
+                </div>
             </div>
 
-            <div class="asistencia-card">
-                <div class="asistencia-info">
-                    <h3>Sweaden Seguros</h3>
-                    <p>1800 793 233</p>
+            <div class="asistencia-card" onclick="toggleCard(this)">
+                <div class="card-main-info">
+                    <div class="asistencia-info">
+                        <h3>Sweaden Seguros</h3>
+                        <p>1800 793 233</p>
+                    </div>
+                    <div class="btn-expand"><i class="fas fa-chevron-down"></i></div>
                 </div>
-                <a href="tel:1800793233" class="btn-call-now"><i class="fas fa-phone"></i></a>
+                <div class="info-desplegable">
+                    <div class="detalle-item"><p><i class="fas fa-truck-pickup"></i> Asistencia:</p> <span>1800 793 233</span></div>
+                    <div class="detalle-item"><p><i class="fas fa-ambulance"></i> Emergencias:</p> <span>Llenar aquí</span></div>
+                    <div class="detalle-item"><p><i class="fas fa-clock"></i> Horario Oficina:</p> <span>Llenar aquí</span></div>
+                    <a href="#" target="_blank" class="link-aseguradora">Visitar Sitio Web <i class="fas fa-external-link-alt"></i></a>
+                    <a href="tel:1800793233" class="btn-call-emergency">Llamar a Emergencias</a>
+                </div>
             </div>
 
-            <div class="asistencia-card">
-                <div class="asistencia-info">
-                    <h3>Zurich</h3>
-                    <p>1800 987 424</p>
+            <div class="asistencia-card" onclick="toggleCard(this)">
+                <div class="card-main-info">
+                    <div class="asistencia-info">
+                        <h3>Zurich</h3>
+                        <p>1800 987 424</p>
+                    </div>
+                    <div class="btn-expand"><i class="fas fa-chevron-down"></i></div>
                 </div>
-                <a href="tel:1800987424" class="btn-call-now"><i class="fas fa-phone"></i></a>
+                <div class="info-desplegable">
+                    <div class="detalle-item"><p><i class="fas fa-truck-pickup"></i> Asistencia:</p> <span>1800 987 424</span></div>
+                    <div class="detalle-item"><p><i class="fas fa-ambulance"></i> Emergencias:</p> <span>Llenar aquí</span></div>
+                    <div class="detalle-item"><p><i class="fas fa-clock"></i> Horario Oficina:</p> <span>Llenar aquí</span></div>
+                    <a href="#" target="_blank" class="link-aseguradora">Visitar Sitio Web <i class="fas fa-external-link-alt"></i></a>
+                    <a href="tel:1800987424" class="btn-call-emergency">Llamar a Emergencias</a>
+                </div>
             </div>
 
-            <div class="asistencia-card">
-                <div class="asistencia-info">
-                    <h3>Generali</h3>
-                    <p>1800 436 372</p>
+            <div class="asistencia-card" onclick="toggleCard(this)">
+                <div class="card-main-info">
+                    <div class="asistencia-info">
+                        <h3>Generali</h3>
+                        <p>1800 436 372</p>
+                    </div>
+                    <div class="btn-expand"><i class="fas fa-chevron-down"></i></div>
                 </div>
-                <a href="tel:1800436372" class="btn-call-now"><i class="fas fa-phone"></i></a>
+                <div class="info-desplegable">
+                    <div class="detalle-item"><p><i class="fas fa-truck-pickup"></i> Asistencia:</p> <span>1800 436 372</span></div>
+                    <div class="detalle-item"><p><i class="fas fa-ambulance"></i> Emergencias:</p> <span>Llenar aquí</span></div>
+                    <div class="detalle-item"><p><i class="fas fa-clock"></i> Horario Oficina:</p> <span>Llenar aquí</span></div>
+                    <a href="#" target="_blank" class="link-aseguradora">Visitar Sitio Web <i class="fas fa-external-link-alt"></i></a>
+                    <a href="tel:1800436372" class="btn-call-emergency">Llamar a Emergencias</a>
+                </div>
             </div>
 
-            <div class="asistencia-card">
-                <div class="asistencia-info">
-                    <h3>Vaz Seguros</h3>
-                    <p>1800 829 829</p>
+            <div class="asistencia-card" onclick="toggleCard(this)">
+                <div class="card-main-info">
+                    <div class="asistencia-info">
+                        <h3>Vaz Seguros</h3>
+                        <p>1800 829 829</p>
+                    </div>
+                    <div class="btn-expand"><i class="fas fa-chevron-down"></i></div>
                 </div>
-                <a href="tel:1800829829" class="btn-call-now"><i class="fas fa-phone"></i></a>
+                <div class="info-desplegable">
+                    <div class="detalle-item"><p><i class="fas fa-truck-pickup"></i> Asistencia:</p> <span>1800 829 829</span></div>
+                    <div class="detalle-item"><p><i class="fas fa-ambulance"></i> Emergencias:</p> <span>Llenar aquí</span></div>
+                    <div class="detalle-item"><p><i class="fas fa-clock"></i> Horario Oficina:</p> <span>Llenar aquí</span></div>
+                    <a href="#" target="_blank" class="link-aseguradora">Visitar Sitio Web <i class="fas fa-external-link-alt"></i></a>
+                    <a href="tel:1800829829" class="btn-call-emergency">Llamar a Emergencias</a>
+                </div>
             </div>
 
         </div>
@@ -212,6 +322,15 @@
     </a>
 
     <script>
+        function toggleCard(card) {
+            // Cierra otras tarjetas abiertas
+            document.querySelectorAll('.asistencia-card').forEach(c => {
+                if (c !== card) c.classList.remove('active');
+            });
+            // Abre/Cierra la actual
+            card.classList.toggle('active');
+        }
+
         function filtrarAseguradoras() {
             let input = document.getElementById('busquedaAseguradora');
             let filter = input.value.toLowerCase();
