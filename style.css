@@ -728,3 +728,103 @@ p { margin-top: 0; }
         transition: transform 0.3s ease;
     }
 </style>
+
+
+/* --- SISTEMA DE DESPLIEGUE ASISTENCIAS --- */
+
+/* Contenedor de la tarjeta */
+.asistencia-card {
+    flex-direction: column !important; /* Permite crecimiento vertical */
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Alineación de la parte visible siempre */
+.card-main-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/* Contenido oculto (Menú desplegable) */
+.info-desplegable {
+    max-height: 0; /* Empieza cerrado */
+    opacity: 0;
+    width: 100%;
+    transition: all 0.4s ease;
+    border-top: 0px solid transparent;
+}
+
+/* Estado activo cuando se da clic */
+.asistencia-card.active {
+    background: #fdfdfd;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.asistencia-card.active .info-desplegable {
+    max-height: 450px; /* Suficiente para el contenido */
+    opacity: 1;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+/* Animación de la flecha */
+.asistencia-card.active .btn-expand {
+    transform: rotate(180deg);
+    color: var(--azul);
+}
+
+/* Estilo de los items de detalle (Grua, Horarios, etc) */
+.detalle-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.detalle-item i {
+    color: var(--rojo);
+    margin-right: 8px;
+    width: 18px;
+    text-align: center;
+}
+
+/* Link a la página web */
+.link-aseguradora {
+    display: block;
+    margin: 15px 0;
+    color: var(--azul);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.link-aseguradora:hover {
+    text-decoration: underline;
+}
+
+/* Botón de llamada final destacado */
+.btn-call-emergency {
+    display: block;
+    background: var(--rojo);
+    color: white !important;
+    text-align: center;
+    padding: 12px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 12px rgba(255, 75, 43, 0.2);
+    transition: 0.3s;
+}
+
+.btn-call-emergency:hover {
+    background: var(--azul-dark);
+    transform: translateY(-2px);
+}
