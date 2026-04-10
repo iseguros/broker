@@ -3,277 +3,298 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iSeguros | Broker de Confianza</title>
+    <title>iSeguros | Broker de Seguros</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
     <style>
         :root {
-            --primary-color: #004aad;
-            --secondary-color: #00c2cb;
-            --dark-color: #1a1a1a;
-            --light-color: #f4f7f6;
-            --white: #ffffff;
+            --azul-corporativo: #004aad; /* Ajusta este azul al de tu logo */
+            --azul-claro: #00c2cb;
+            --rojo-alerta: #e74c3c;
+            --blanco: #ffffff;
+            --gris-claro: #f8f9fa;
+            --oscuro: #2c3e50;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            scroll-behavior: smooth; /* Desplazamiento suave */
+            scroll-behavior: smooth;
         }
 
         body {
             font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            color: var(--dark-color);
-            background-color: var(--white);
+            color: var(--oscuro);
         }
 
-        /* Header Navegable y Sticky */
+        /* HEADER CENTRADO Y NAVEGACIÓN */
         header {
-            background: var(--white);
-            padding: 1rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: fixed;
+            background: var(--blanco);
+            padding: 20px 0 0 0;
+            text-align: center;
+            position: sticky;
             top: 0;
-            width: 100%;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
 
-        .logo img {
-            height: 50px;
+        .logo-container img {
+            max-width: 250px; /* Logo más grande */
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        nav {
+            background: var(--azul-corporativo);
+            padding: 10px 0;
         }
 
         nav ul {
             display: flex;
+            justify-content: center;
+            align-items: center;
             list-style: none;
+            flex-wrap: wrap;
         }
 
         nav ul li {
-            margin-left: 20px;
+            margin: 5px 15px;
         }
 
         nav ul li a {
             text-decoration: none;
-            color: var(--dark-color);
+            color: var(--blanco);
             font-weight: 600;
-            transition: color 0.3s;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            transition: 0.3s;
         }
 
         nav ul li a:hover {
-            color: var(--secondary-color);
+            color: var(--azul-claro);
         }
 
-        /* Hero Section con Animación */
+        /* SECCIÓN ESPECIAL ROJA */
+        nav ul li a.asistencia-btn {
+            background: var(--rojo-alerta);
+            padding: 8px 15px;
+            border-radius: 5px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* HERO / INICIO */
         .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0, 74, 173, 0.8), rgba(0, 194, 203, 0.8)), url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1350&q=80');
+            background: linear-gradient(rgba(0, 74, 173, 0.7), rgba(0, 74, 173, 0.7)), url('https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
+            height: 60vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            color: var(--white);
+            color: white;
             text-align: center;
-            padding-top: 80px;
+            padding: 0 20px;
         }
 
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .btn-main {
-            background: var(--secondary-color);
-            color: var(--white);
-            padding: 12px 30px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: transform 0.3s ease;
-        }
-
-        .btn-main:hover {
-            transform: scale(1.1);
-        }
-
-        /* Secciones Generales */
+        /* SECCIONES */
         section {
-            padding: 100px 10%;
-            min-height: 80vh;
+            padding: 80px 10%;
         }
 
-        h2 {
+        .section-title {
             text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            position: relative;
+            margin-bottom: 50px;
+            font-family: 'Montserrat', sans-serif;
+            color: var(--azul-corporativo);
         }
 
-        h2::after {
-            content: '';
-            width: 50px;
-            height: 4px;
-            background: var(--secondary-color);
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
+        .section-title h2 { font-size: 2.5rem; }
 
-        /* Grid de Seguros */
-        .services-grid {
+        /* GRID DE SERVICIOS Y ASEGURADORAS */
+        .grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
         }
 
         .card {
-            background: var(--light-color);
-            padding: 2rem;
-            border-radius: 15px;
+            background: var(--gris-claro);
+            padding: 30px;
+            border-radius: 10px;
             text-align: center;
-            transition: all 0.3s ease;
-            border-bottom: 5px solid transparent;
+            transition: 0.3s;
+            border: 1px solid #eee;
         }
 
         .card:hover {
             transform: translateY(-10px);
-            border-bottom: 5px solid var(--secondary-color);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            background: var(--blanco);
         }
 
         .card i {
-            font-size: 3rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
+            font-size: 2.5rem;
+            color: var(--azul-corporativo);
+            margin-bottom: 15px;
         }
 
-        /* WhatsApp Floating Button */
-        .whatsapp-float {
+        /* FAQ */
+        .faq-item {
+            background: var(--blanco);
+            margin-bottom: 10px;
+            padding: 20px;
+            border-left: 5px solid var(--azul-corporativo);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        /* BOTON FLOTANTE */
+        .wsp-float {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
+            bottom: 25px;
+            right: 25px;
             background: #25d366;
             color: white;
-            width: 60px;
-            height: 60px;
+            width: 55px;
+            height: 55px;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 30px;
-            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
-            z-index: 1000;
+            font-size: 28px;
+            z-index: 100;
         }
 
-        /* Footer */
         footer {
-            background: var(--dark-color);
-            color: var(--white);
-            padding: 50px 10%;
+            background: var(--azul-corporativo);
+            color: white;
             text-align: center;
+            padding: 30px;
         }
 
         @media (max-width: 768px) {
-            nav { display: none; } /* En producción agregarías un menú hamburguesa */
-            .hero h1 { font-size: 2.5rem; }
+            nav ul { flex-direction: column; }
+            nav ul li { margin: 10px 0; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo animate__animated animate__fadeInLeft">
-            <img src="logo.png" alt="iSeguros">
+        <div class="logo-container animate__animated animate__fadeInDown">
+            <img src="logo.png" alt="iSeguros Logo">
         </div>
-        <nav class="animate__animated animate__fadeInRight">
+        <nav>
             <ul>
                 <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#nosotros">Sobre Nosotros</a></li>
                 <li><a href="#seguros">Seguros</a></li>
+                <li><a href="#aseguradoras">Aseguradoras</a></li>
+                <li><a href="#faq">Preguntas Frecuentes</a></li>
                 <li><a href="#contacto">Contacto</a></li>
+                <li><a href="asistencia.html" class="asistencia-btn">Asistencia 24/7</a></li>
             </ul>
         </nav>
     </header>
 
     <section id="inicio" class="hero">
-        <h1 class="animate__animated animate__zoomIn">iSeguros</h1>
-        <p class="animate__animated animate__fadeInUp animate__delay-1s">Tu broker de confianza con más de 10 años de experiencia.</p>
-        <br>
-        <a href="#seguros" class="btn-main animate__animated animate__bounceIn animate__delay-2s">Ver Coberturas</a>
+        <h1 class="animate__animated animate__zoomIn">TU BROKER DE CONFIANZA</h1>
+        <p class="animate__animated animate__fadeInUp">Más de 10 años protegiendo lo que más quieres en Ecuador.</p>
     </section>
 
     <section id="nosotros">
-        <h2>Nosotros</h2>
-        <p style="text-align: center; max-width: 800px; margin: 0 auto;">
-            Asesoramos a personas y empresas en Ecuador para encontrar la póliza perfecta. Trabajamos con las aseguradoras más sólidas del país para garantizar tu tranquilidad.
-        </p>
+        <div class="section-title">
+            <h2>Sobre Nosotros</h2>
+        </div>
+        <div style="max-width: 800px; margin: 0 auto; text-align: center; font-size: 1.1rem;">
+            <p>En iSeguros nos especializamos en brindar soluciones integrales de aseguramiento. Nuestra misión es simplificar el mundo de los seguros para que tú y tu empresa estén siempre protegidos con las mejores condiciones del mercado.</p>
+        </div>
     </section>
 
-    <section id="seguros" style="background-color: var(--light-color);">
-        <h2>Nuestros Seguros</h2>
-        <div class="services-grid">
+    <section id="seguros" style="background: var(--gris-claro);">
+        <div class="section-title">
+            <h2>Nuestros Seguros</h2>
+        </div>
+        <div class="grid-container">
             <div class="card">
-                <i class="fas fa-car"></i>
-                <h3>Vehicular</h3>
-                <p>Protección total contra accidentes, robos y daños a terceros.</p>
+                <i class="fas fa-car-side"></i>
+                <h3>Seguro Vehicular</h3>
+                <p>Cobertura contra robos, choques y asistencia vial inmediata.</p>
             </div>
             <div class="card">
-                <i class="fas fa-heartbeat"></i>
-                <h3>Salud</h3>
-                <p>La mejor cobertura médica nacional e internacional para ti.</p>
+                <i class="fas fa-user-md"></i>
+                <h3>Seguro de Salud</h3>
+                <p>Acceso a las mejores clínicas y especialistas del país.</p>
             </div>
             <div class="card">
-                <i class="fas fa-briefcase"></i>
-                <h3>Empresarial</h3>
-                <p>Resguardamos los activos de tu negocio y su continuidad.</p>
+                <i class="fas fa-building"></i>
+                <h3>Seguro Empresarial</h3>
+                <p>Protegemos la infraestructura y el capital de tu negocio.</p>
             </div>
-            <div class="card">
-                <i class="fas fa-umbrella"></i>
-                <h3>Vida</h3>
-                <p>Asegura el futuro financiero de tus seres queridos.</p>
-            </div>
+        </div>
+    </section>
+
+    <section id="aseguradoras">
+        <div class="section-title">
+            <h2>Aseguradoras</h2>
+        </div>
+        <p style="text-align:center;">Trabajamos de la mano con las empresas más sólidas del país para garantizar tu respaldo.</p>
+        </section>
+
+    <section id="faq" style="background: var(--gris-claro);">
+        <div class="section-title">
+            <h2>Preguntas Frecuentes</h2>
+        </div>
+        <div class="faq-item">
+            <strong>¿Cómo solicito una cotización?</strong>
+            <p>Puedes hacerlo a través de nuestro botón de contacto o directamente por WhatsApp.</p>
+        </div>
+        <div class="faq-item">
+            <strong>¿Qué aseguradoras manejan?</strong>
+            <p>Trabajamos con las principales firmas legales y solventes autorizadas en Ecuador.</p>
         </div>
     </section>
 
     <section id="contacto">
-        <h2>Contacto</h2>
-        <div style="text-align: center;">
-            <p><i class="fas fa-phone"></i> 098 780 1917</p>
+        <div class="section-title">
+            <h2>Contacto</h2>
+        </div>
+        <div style="text-align:center;">
+            <p><i class="fas fa-phone-alt"></i> 098 780 1917</p>
             <p><i class="fas fa-envelope"></i> pidrovo@iseguros.com.ec</p>
-            <p><i class="fas fa-map-marker-alt"></i> Cuenca, Ecuador</p>
+            <p><i class="fas fa-clock"></i> Atención 24/7 para siniestros</p>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 iSeguros - Todos los derechos reservados.</p>
+        <p>&copy; 2026 iSeguros | Cuenca, Ecuador</p>
     </footer>
 
-    <a href="https://wa.me/593987801917" class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/593987801917" class="wsp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
     <script>
+        // Animación suave al aparecer las secciones
         window.addEventListener('scroll', () => {
-            const cards = document.querySelectorAll('.card');
-            cards.forEach(card => {
-                const rect = card.getBoundingClientRect();
-                if (rect.top < window.innerHeight - 100) {
-                    card.classList.add('animate__animated', 'animate__fadeInUp');
+            const sections = document.querySelectorAll('.card, .faq-item');
+            sections.forEach(sec => {
+                const pos = sec.getBoundingClientRect().top;
+                if(pos < window.innerHeight - 50) {
+                    sec.classList.add('animate__animated', 'animate__fadeInUp');
                 }
             });
         });
     </script>
-
 </body>
 </html>
