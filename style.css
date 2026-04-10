@@ -512,3 +512,22 @@ footer {
 /* Opcional: Para asegurar que el h1 y p tengan buen espacio */
 h1 { margin-bottom: 0; }
 p { margin-top: 0; }
+
+
+/* --- CORRECCIÓN ERROR LÍNEA BLANCA WHATSAPP --- */
+.wsp-float {
+    /* Convierte el enlace en un contenedor Flex */
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center;     /* Centra verticalmente */
+    
+    /* Elimina cualquier espacio de línea (line-height) heredado del texto normal */
+    line-height: 0;
+}
+
+/* Opcional: Para asegurar que el icono no tenga espacios internos */
+.wsp-float i {
+    margin: 0;
+    padding: 0;
+    display: block; /* Opcional: Para tratar el icono como bloque */
+}
