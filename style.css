@@ -909,54 +909,54 @@ nav ul li a:hover:not(.active) {
 
 
 /* =========================================
-   AJUSTE ESPECÍFICO SECCIÓN PRODUCTOS
+   NUEVA ESTÉTICA SECCIÓN PRODUCTOS (Igual a FAQ)
    ========================================= */
 
-/* 1. Reducir el ancho (height) de la barra azul */
-.productos-hero { /* Asegúrate de que este sea el nombre de tu clase en el HTML */
-    background-color: var(--azul);
-    padding: 60px 20px; /* Reducido de 80vh o valores altos a un padding fijo */
-    min-height: auto;   /* Quita alturas mínimas excesivas */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* 1. Cambiar la barra azul por fondo blanco estándar */
+.productos-hero {
+    background-color: var(--blanco); /* Ahora es fondo blanco */
+    padding: 60px 0;                  /* Padding estándar de sección */
     width: 100%;
+    display: block;                  /* Volvemos a un bloque estándar */
 }
 
-/* 2. Centrar el contenido y limitar su ancho para que no toque los bordes */
+/* 2. Contenedor centrado y elegante */
 .productos-content {
-    max-width: 850px; /* Limita el ancho del texto para que se vea centrado y elegante */
+    width: 90%;
+    max-width: 900px;
     margin: 0 auto;
     text-align: center;
 }
 
-/* 3. Ajustar el tamaño del título (que no sea tan grande) */
+/* 3. Estilo del Título (Igual a Preguntas Frecuentes) */
 .productos-content h1 {
-    font-size: 2.2rem; /* Tamaño más moderado que el del Inicio */
-    line-height: 1.2;
+    font-size: 2.2rem;
+    color: var(--azul); /* Título azul corporativo */
+    font-weight: 700;
+    text-transform: uppercase;
     margin-bottom: 20px;
-    color: var(--blanco);
 }
 
-/* 4. Ajustar el párrafo para que no llegue a los márgenes */
+/* 4. Estilo del Subtítulo (Igual a Preguntas Frecuentes) */
 .productos-content p {
     font-size: 1.05rem;
+    color: var(--texto-suave); /* Texto gris suave #666 */
     line-height: 1.6;
-    max-width: 750px; /* Un poco más estrecho que el contenedor padre */
-    margin: 0 auto;  /* Centra el bloque del párrafo */
-    color: rgba(255, 255, 255, 0.9); /* Blanco suavizado */
+    margin: 0 auto;
+    max-width: 750px;
 }
 
-/* Ajuste para móviles */
+/* 5. Asegurar que la línea roja (underline) aparezca */
+.productos-hero .underline {
+    width: 50px;
+    height: 4px;
+    background-color: var(--rojo);
+    margin: -10px auto 20px; /* Centrada y debajo del h1 */
+}
+
+/* Ajustes para móviles */
 @media (max-width: 768px) {
-    .productos-hero {
-        padding: 40px 15px;
-    }
-    .productos-content h1 {
-        font-size: 1.6rem;
-    }
-    .productos-content p {
-        font-size: 0.95rem;
-        padding: 0 10px;
-    }
+    .productos-hero { padding: 40px 0; }
+    .productos-content h1 { font-size: 1.7rem; }
+    .productos-content p { font-size: 0.95rem; }
 }
