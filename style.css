@@ -581,8 +581,8 @@ p { margin-top: 0; }
 /* Estilo específico para celulares */
 @media (max-width: 768px) {
     .wsp-float {
-        width: 52px !important;    /* Aún más pequeño en celular */
-        height: 40px !important;
+        width: 50px !important;    /* Aún más pequeño en celular */
+        height: 50px !important;
         bottom: 15px !important;   /* Casi pegado al borde inferior */
         right: 15px !important;    /* Casi pegado al borde lateral */
         font-size: 20px !important;
