@@ -79,6 +79,18 @@
             box-shadow: 0 5px 15px rgba(0, 97, 175, 0.3);
         }
 
+        /* Estilo para el mensaje de éxito */
+        #mensajeExito {
+            text-align: center;
+            padding: 20px;
+            display: none;
+        }
+        #mensajeExito i {
+            font-size: 50px;
+            color: #28a745;
+            margin-bottom: 15px;
+        }
+
         @media (max-width: 600px) {
             .form-grid { grid-template-columns: 1fr; }
             .quote-card { padding: 25px; }
@@ -109,26 +121,25 @@
             <div class="underline"></div>
             <p style="text-align: center; color: #666; margin-bottom: 40px;">Un asesor experto analizará las mejores opciones para ti.</p>
         </div>
-    </main>
 
         <div class="quote-card">
-            <form action="#">
+            <form action="https://formspree.io/f/TU_ID_AQUÍ" method="POST" id="miFormulario">
                 <div class="form-grid">
                     <div>
                         <label class="form-label">Nombre Completo</label>
-                        <input type="text" class="input-field" placeholder="Ej. David Tello" required>
+                        <input type="text" name="Nombre" class="input-field" placeholder="Ej. David Tello" required>
                     </div>
                     <div>
                         <label class="form-label">WhatsApp de contacto</label>
-                        <input type="tel" class="input-field" placeholder="099 XXX XXXX" required>
+                        <input type="tel" name="WhatsApp" class="input-field" placeholder="099 XXX XXXX" required>
                     </div>
                 </div>
 
                 <label class="form-label">Correo Electrónico</label>
-                <input type="email" class="input-field" placeholder="ejemplo@correo.com" required>
+                <input type="email" name="Email" class="input-field" placeholder="ejemplo@correo.com" required>
 
                 <label class="form-label">¿Qué producto te interesa?</label>
-                <select class="input-field" required>
+                <select name="Producto" class="input-field" required>
                     <option value="">Selecciona un seguro</option>
                     <option value="vehicular">Seguro Vehicular</option>
                     <option value="salud">Seguro de Salud</option>
@@ -138,12 +149,18 @@
                 </select>
 
                 <label class="form-label">Detalles adicionales (Opcional)</label>
-                <textarea class="input-field" rows="4" placeholder="Ej. Marca y año del vehículo, número de familiares, etc."></textarea>
+                <textarea name="Mensaje" class="input-field" rows="4" placeholder="Ej. Marca y año del vehículo, número de familiares, etc."></textarea>
 
-                <button type="submit" class="submit-btn">
+                <button type="submit" class="submit-btn" id="botonEnvio">
                     <i class="fas fa-paper-plane"></i> Enviar Información
                 </button>
             </form>
+
+            <div id="mensajeExito" class="animate__animated animate__fadeIn">
+                <i class="fas fa-check-circle"></i>
+                <h2 style="color: var(--azul-dark);">¡Información Recibida!</h2>
+                <p>Tu solicitud ha sido enviada con éxito. Un asesor experto se contactará contigo a la brevedad posible.</p>
+            </div>
         </div>
     </main>
 
@@ -155,21 +172,38 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <form id="quoteForm">
-        <div class="form-group">
-            <input type="text" id="nombre" placeholder="Tu Nombre" required>
-        </div>
-        <div class="form-group">
-            <input type="text" id="seguro" placeholder="Tipo de Seguro (Auto, Salud, etc.)" required>
-        </div>
-        <div class="form-group">
-            <textarea id="mensaje" placeholder="¿Algún detalle adicional?"></textarea>
-        </div>
+    <script>
+        const form = document.getElementById("miFormulario");
+        const mensajeExito = document.getElementById("mensajeExito");
+        const boton = document.getElementById("botonEnvio");
 
-        <button type="button" onclick="enviarWhatsApp()" class="btn-submit">
-            Enviar Información
-        </button>
-    </form>
-    
+        form.addEventListener("submit", async function(event) {
+            event.preventDefault(); // Evita que la página cambie
+            
+            boton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+            boton.disabled = true;
+
+            const data = new FormData(event.target);
+            
+            try {
+                const response = await fetch(event.target.action, {
+                    method: form.method,
+                    body: data,
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    form.style.display = "none"; // Esconde el formulario
+                    mensajeExito.style.display = "block"; // Muestra el mensaje de éxito
+                } else {
+                    throw new Error();
+                }
+            } catch (error) {
+                boton.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar Información';
+                boton.disabled = false;
+                alert("Hubo un error al enviar. Por favor, intenta de nuevo o escríbenos por WhatsApp.");
+            }
+        });
+    </script>
 </body>
 </html>
