@@ -960,3 +960,31 @@ nav ul li a:hover:not(.active) {
     .productos-content h1 { font-size: 1.7rem; }
     .productos-content p { font-size: 0.95rem; }
 }
+
+/* =========================================
+   REDUCIR ESPACIO ENTRE TEXTO Y RECUADROS
+   ========================================= */
+
+/* 1. Ajustamos la sección del texto */
+.productos-hero {
+    padding-bottom: 20px !important; /* Reducimos el espacio de abajo del texto */
+    margin-bottom: 0 !important;      /* Eliminamos márgenes externos */
+}
+
+.productos-content p {
+    margin-bottom: 10px !important;  /* Menos espacio después del párrafo */
+}
+
+/* 2. Ajustamos la sección de los recuadros (Grid) */
+.section-padding { 
+    padding-top: 20px !important;    /* Reducimos el espacio de arriba de los recuadros */
+}
+
+.services-grid {
+    margin-top: 0 !important;        /* Eliminamos cualquier margen superior del grid */
+}
+
+/* 3. Ajuste fino para la línea roja (si la usas) */
+.underline {
+    margin-bottom: 15px !important;  /* Reduce el hueco entre la línea y el párrafo */
+}
