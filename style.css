@@ -18,12 +18,21 @@
     box-sizing: border-box;
 }
 
-body {
+/* Evita el desbordamiento lateral y necesidad de zoom */
+html, body {
+    width: 100%;
+    overflow-x: hidden;
     font-family: 'Poppins', sans-serif;
     color: var(--texto-oscuro);
     line-height: 1.6;
     background-color: var(--blanco);
-    overflow-x: hidden;
+}
+
+/* IMÁGENES RESPONSIVAS (No se saldrán de la pantalla) */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 /* =========================================
@@ -31,27 +40,28 @@ body {
    ========================================= */
 header {
     background-color: var(--azul);
-    padding-top: 25px;
+    padding-top: 20px;
     text-align: center;
     position: sticky;
     top: 0;
     z-index: 1000;
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    width: 100%;
 }
 
 .logo-container {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .logo-container img {
-    max-width: 240px;
-    height: auto;
+    max-width: 220px;
+    margin: 0 auto;
     mix-blend-mode: multiply; 
 }
 
 nav {
     background-color: var(--azul);
-    padding: 15px 0;
+    padding: 10px 0;
     border-top: 1px solid rgba(255,255,255,0.1);
 }
 
@@ -60,11 +70,8 @@ nav ul {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
-}
-
-nav ul li {
-    margin: 5px 12px;
+    flex-wrap: wrap; /* Clave para que no se amontone en móvil */
+    gap: 15px;
 }
 
 nav ul li a {
@@ -84,7 +91,7 @@ nav ul li a.active {
 
 .asistencia-btn {
     background-color: var(--rojo) !important;
-    padding: 8px 16px;
+    padding: 6px 14px;
     border-radius: 5px;
     animation: pulse-red 2s infinite;
     box-shadow: 0 4px 10px rgba(255, 75, 43, 0.4);
@@ -97,41 +104,42 @@ nav ul li a.active {
 }
 
 /* =========================================
-   HERO SECTION
+   HERO SECTION (PORTADA)
    ========================================= */
 .hero {
-    height: 75vh;
+    height: 70vh;
     background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
                 url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=1500&auto=format&fit=crop');
     background-size: cover;
     background-position: center;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     text-align: center;
     color: white;
     padding: 20px;
 }
 
 .hero h1 {
-    font-size: 3rem;
+    font-size: 2.8rem;
     font-weight: 700;
     margin-bottom: 20px;
 }
 
 .hero p {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     max-width: 700px;
-    margin: 0 auto 30px;
+    margin-bottom: 30px;
 }
 
 .btn-primary, .btn-emergency {
-    padding: 14px 30px;
+    padding: 12px 25px;
     border-radius: 5px;
     text-decoration: none;
     font-weight: bold;
     display: inline-block;
-    margin: 10px;
+    margin: 8px;
     transition: var(--transicion);
 }
 
@@ -139,44 +147,37 @@ nav ul li a.active {
 .btn-emergency { background: white; color: var(--rojo); }
 
 /* =========================================
-   SECCIONES Y CORRECCIÓN DE TÍTULOS
+   SECCIONES GENERALES Y SOBRE NOSOTROS
    ========================================= */
-.section-padding { padding: 80px 0; }
+.section-padding { padding: 60px 0; }
 .container { width: 90%; max-width: 1100px; margin: auto; }
 
-.section-title { 
-    text-align: center; 
-    margin-bottom: 50px; 
-    position: relative; /* Para control de la línea */
+.section-title { text-align: center; margin-bottom: 40px; position: relative; }
+.section-title h2 { font-size: 2rem; color: var(--azul); font-weight: 700; text-transform: uppercase; }
+.underline { width: 50px; height: 4px; background: var(--rojo); margin: 10px auto 20px; }
+
+.about-flex {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
 }
 
-.section-title h2 { 
-    font-size: 2.2rem; 
-    color: var(--azul); 
-    font-weight: 700; 
-    text-transform: uppercase; 
-}
+.about-text, .about-image { flex: 1; min-width: 300px; }
+.about-image img { border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
 
-/* La línea roja ahora se comporta correctamente debajo del H2 */
-.underline { 
-    width: 50px; 
-    height: 4px; 
-    background: var(--rojo); 
-    margin: 10px auto 20px; /* Margen inferior para separar del párrafo */
-}
-
-.bg-light { background-color: var(--gris-fondo); }
-
-/* GRID DE PRODUCTOS */
+/* =========================================
+   PRODUCTOS (GRID)
+   ========================================= */
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 30px;
+    gap: 25px;
 }
 
 .service-card {
     background: white;
-    padding: 40px 20px;
+    padding: 35px 20px;
     border-radius: 15px;
     text-align: center;
     transition: var(--transicion);
@@ -184,12 +185,14 @@ nav ul li a.active {
 }
 
 .service-card i {
-    font-size: 3rem;
+    font-size: 2.5rem;
     color: var(--azul);
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
-/* CONTACTO STRIP */
+/* =========================================
+   CONTACTO Y FOOTER
+   ========================================= */
 .contact-strip {
     background-color: var(--azul-dark);
     color: white;
@@ -199,11 +202,10 @@ nav ul li a.active {
 .contact-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 30px;
+    gap: 20px;
     text-align: center;
 }
 
-/* FOOTER Y WHATSAPP */
 footer {
     background-color: #111;
     color: #999;
@@ -228,22 +230,52 @@ footer {
 }
 
 /* =========================================
-   RESPONSIVO (CELULARES)
+   CORRECCIONES EXCLUSIVAS PARA CELULARES
    ========================================= */
 @media (max-width: 768px) {
-    header { padding-top: 15px; }
-    
-    /* Corrección: Logo más pequeño para que no rompa el menú */
-    .logo-container img { max-width: 180px; }
-    
-    nav ul {
-        flex-direction: column; 
-        padding-bottom: 10px;
+    header {
+        padding-top: 10px; /* Menú mucho más estrecho arriba */
     }
+
+    .logo-container img {
+        max-width: 150px; /* Logo discreto para ahorrar espacio */
+    }
+
+    nav {
+        padding: 5px 0;
+    }
+
+    nav ul {
+        gap: 8px; /* Espacio reducido entre botones */
+        padding: 0 10px;
+    }
+
+    nav ul li {
+        margin: 2px 0;
+    }
+
+    nav ul li a {
+        font-size: 0.65rem; /* Texto pequeño pero legible */
+    }
+
+    .asistencia-btn {
+        padding: 4px 8px; /* Botón de emergencia compacto */
+    }
+
+    /* Ajuste de Secciones */
+    .hero h1 { font-size: 1.8rem; }
+    .hero p { font-size: 0.95rem; }
     
-    nav ul li { margin: 8px 0; }
-    
-    /* Ajuste de texto en móvil */
-    .hero h1 { font-size: 2rem; }
-    .section-title h2 { font-size: 1.8rem; }
+    .section-padding { padding: 40px 0; }
+
+    .about-flex {
+        flex-direction: column-reverse; /* Texto primero, imagen después */
+        text-align: center;
+    }
+
+    .about-image {
+        min-width: 100%; /* La imagen ya no se sale de la pantalla */
+    }
+
+    .section-title h2 { font-size: 1.6rem; }
 }
