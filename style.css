@@ -514,13 +514,33 @@ h1 { margin-bottom: 0; }
 p { margin-top: 0; }
 
 
-/* --- CORRECCIÓN ERROR LÍNEA BLANCA WHATSAPP (LINE-HEIGHT: 0) --- */
 .wsp-float {
-    line-height: 0;
-    padding: 0; /* Asegura que no haya padding interno que empuje el icono */
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 1000;
+    
+    /* ESTAS LÍNEAS BORRAN LA RAYA BLANCA */
+    text-decoration: none !important; /* Quita el subrayado del enlace */
+    display: flex;                   /* Centra el icono perfectamente */
+    justify-content: center;
+    align-items: center;
+    outline: none;                   /* Quita cualquier borde de selección */
 }
 
-.wsp-float i {
-    display: block; /* Convierte el icono en un bloque para eliminar comportamiento de texto */
-    margin: 0 auto; /* Centra el icono dentro del contenedor si es necesario */
+/* También por seguridad, quita el subrayado cuando pasas el mouse */
+.wsp-float:hover, 
+.wsp-float:active, 
+.wsp-float:focus {
+    text-decoration: none !important;
+    color: #FFF;
+    outline: none;
 }
