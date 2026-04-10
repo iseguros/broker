@@ -1,9 +1,14 @@
+/* =========================================
+   VARIABLES Y CONFIGURACIÓN GLOBAL
+   ========================================= */
 :root {
-    --azul-corporativo: #0061af; /* El azul de tu logo */
+    --azul-corporativo: #0061af; /* Azul exacto de tu logo */
     --azul-oscuro: #004a87;
     --rojo-alerta: #ff4b2b;
     --blanco: #ffffff;
     --gris-fondo: #f4f7fb;
+    --texto-oscuro: #2c3e50;
+    --texto-suave: #5a6c7d;
 }
 
 * {
@@ -11,16 +16,28 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
 }
 
 body {
-    background-color: var(--gris-fondo);
+    background-color: var(--blanco);
+    color: var(--texto-oscuro);
+    line-height: 1.6;
 }
 
-/* HEADER Y NAVEGACIÓN - BLOQUE AZUL SÓLIDO */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 60px 0;
+}
+
+/* =========================================
+   HEADER Y NAVEGACIÓN (BLOQUE AZUL SÓLIDO)
+   ========================================= */
 header {
     background-color: var(--azul-corporativo);
-    padding-top: 25px;
+    padding-top: 20px;
     text-align: center;
     position: sticky;
     top: 0;
@@ -29,20 +46,19 @@ header {
 }
 
 .logo-container {
-    padding-bottom: 20px;
+    padding-bottom: 15px;
 }
 
 .logo-container img {
-    max-width: 320px; /* Tamaño impactante */
+    max-width: 280px;
     height: auto;
-    /* Esto ayuda si el logo tiene un fondo azul ligeramente diferente */
-    mix-blend-mode: multiply; 
+    mix-blend-mode: multiply; /* Suaviza bordes si el logo tiene fondo */
 }
 
 nav {
     background-color: var(--azul-corporativo);
-    padding: 15px 0;
-    border-top: 1px solid rgba(255,255,255,0.1); /* Línea muy sutil para separar */
+    padding: 12px 0;
+    border-top: 1px solid rgba(255,255,255,0.1);
 }
 
 nav ul {
@@ -68,13 +84,13 @@ nav ul li a {
 }
 
 nav ul li a:hover, nav ul li a.active {
-    color: #00d9ff; /* Un celeste brillante para resaltar donde estás */
+    color: #00d9ff;
 }
 
-/* BOTÓN ASISTENCIA ROJO */
+/* BOTÓN ASISTENCIA 24/7 */
 nav ul li a.asistencia-btn {
     background-color: var(--rojo-alerta);
-    padding: 10px 22px;
+    padding: 10px 20px;
     border-radius: 5px;
     color: white !important;
     animation: pulse 2s infinite;
@@ -87,27 +103,27 @@ nav ul li a.asistencia-btn {
     100% { transform: scale(1); }
 }
 
-/* HERO SECTION - INICIO */
-.hero-section {
-    height: 70vh;
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=2000&auto=format&fit=crop');
+/* =========================================
+   SECCIÓN HERO (PORTADA)
+   ========================================= */
+.hero-main {
+    height: 80vh;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                url('https://images.unsplash.com/photo-1454165833767-027ffea9e77b?q=80&w=2000&auto=format&fit=crop');
     background-size: cover;
     background-position: center;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     color: white;
     text-align: center;
 }
 
-.hero-content h1 {
+.hero-text h1 {
     font-size: 3.5rem;
     font-weight: 700;
-    margin-bottom: 10px;
-}
-
-.hero-buttons {
-    margin-top: 30px;
+    margin-bottom: 20px;
+    line-height: 1.2;
 }
 
 .btn-primary {
@@ -115,37 +131,153 @@ nav ul li a.asistencia-btn {
     color: white;
     padding: 15px 35px;
     text-decoration: none;
-    border-radius: 50px;
+    border-radius: 5px;
     font-weight: bold;
-    margin-right: 15px;
+    display: inline-block;
+    margin: 10px;
     transition: 0.3s;
 }
 
-.btn-secondary {
-    background: var(--azul-corporativo);
-    color: white;
+.btn-emergency {
+    background: white;
+    color: var(--rojo-alerta);
     padding: 15px 35px;
     text-decoration: none;
-    border-radius: 50px;
+    border-radius: 5px;
     font-weight: bold;
+    display: inline-block;
+    margin: 10px;
     transition: 0.3s;
 }
 
-.btn-primary:hover, .btn-secondary:hover {
+.btn-primary:hover, .btn-emergency:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
-/* FOOTER */
+/* =========================================
+   SECCIONES DEL INDEX (Sobre Nosotros, Seguros, etc.)
+   ========================================= */
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-title h2 {
+    font-size: 2.5rem;
+    color: var(--azul-corporativo);
+    text-transform: uppercase;
+}
+
+.bar {
+    width: 60px;
+    height: 4px;
+    background: var(--rojo-alerta);
+    margin: 10px auto;
+}
+
+/* Sobre Nosotros */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.features-list {
+    list-style: none;
+    margin-top: 20px;
+}
+
+.features-list li {
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.features-list i {
+    color: var(--rojo-alerta);
+    margin-right: 10px;
+}
+
+.stat-card {
+    background: var(--azul-corporativo);
+    color: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Cards de Seguros */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.s-card {
+    background: var(--gris-fondo);
+    padding: 40px 20px;
+    border-radius: 15px;
+    text-align: center;
+    transition: 0.3s;
+    border-bottom: 4px solid transparent;
+}
+
+.s-card:hover {
+    background: white;
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    border-bottom: 4px solid var(--azul-corporativo);
+}
+
+.s-card i {
+    font-size: 3rem;
+    color: var(--azul-corporativo);
+    margin-bottom: 20px;
+}
+
+/* Aseguradoras Logos */
+.partners-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.partner-tag {
+    background: #eee;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-weight: bold;
+    color: #888;
+    border: 1px solid #ddd;
+}
+
+/* Contacto Home */
+.contact-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+
+.contact-item i {
+    font-size: 2.5rem;
+    color: var(--rojo-alerta);
+    margin-bottom: 15px;
+}
+
+/* =========================================
+   FOOTER Y BOTONES FLOTANTES
+   ========================================= */
 footer {
     background: var(--azul-oscuro);
     color: white;
-    padding: 40px 20px;
+    padding: 40px 0;
     text-align: center;
-    font-size: 0.9rem;
 }
 
-/* WHATSAPP FLOTANTE */
 .wsp-float {
     position: fixed;
     bottom: 30px;
@@ -160,7 +292,7 @@ footer {
     align-items: center;
     font-size: 30px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    z-index: 1000;
+    z-index: 2000;
     transition: 0.3s;
 }
 
@@ -168,9 +300,12 @@ footer {
     transform: scale(1.1);
 }
 
-/* RESPONSIVE */
+/* =========================================
+   RESPONSIVE
+   ========================================= */
 @media (max-width: 768px) {
-    .hero-content h1 { font-size: 2.2rem; }
+    .hero-text h1 { font-size: 2.2rem; }
+    .about-grid { grid-template-columns: 1fr; }
     nav ul { flex-direction: column; }
     nav ul li { margin: 10px 0; }
 }
