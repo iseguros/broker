@@ -6,61 +6,98 @@
     <title>Asistencia 24/7 | iSeguros</title>
     
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
     <style>
-        /* Estilo específico para la sección de emergencia */
-        .emergency-header {
+        /* Estilo específico para resaltar la emergencia */
+        .emergency-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .emergency-banner {
             background: var(--rojo-alerta);
             color: white;
-            padding: 40px 20px;
-            border-radius: 15px;
-            margin-bottom: 30px;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(255, 75, 43, 0.3);
+            margin-bottom: 40px;
         }
 
-        .box {
+        .emergency-banner h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .box-asistencia {
             background: white;
             padding: 30px;
-            margin: 20px auto;
-            max-width: 500px;
             border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             border-left: 8px solid var(--rojo-alerta);
-            transition: transform 0.3s ease;
+            transition: 0.3s;
         }
 
-        .box:hover {
-            transform: scale(1.02);
+        .box-asistencia:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
         }
 
-        .box h3 {
+        .info-aseguradora h3 {
             color: var(--azul-corporativo);
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 10px;
+            font-size: 1.4rem;
+            margin-bottom: 10px;
         }
 
-        .phone-link {
-            display: block;
-            color: var(--rojo-alerta);
+        .info-aseguradora p {
+            color: #555;
+            line-height: 1.4;
+        }
+
+        .btn-call {
+            background: var(--rojo-alerta);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
             text-decoration: none;
-            font-weight: 700;
-            font-size: 1.2rem;
-            margin: 10px 0;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.3s;
         }
 
-        .phone-link i {
-            margin-right: 10px;
+        .btn-call:hover {
+            background: #d43f26;
+            transform: scale(1.05);
+        }
+
+        .whatsapp-link {
+            color: #25d366;
+            text-decoration: none;
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 600px) {
+            .box-asistencia { flex-direction: column; text-align: center; gap: 20px; }
+            .emergency-banner h1 { font-size: 1.8rem; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo-container animate__animated animate__fadeInDown">
+        <div class="logo-container animate__animated animate__fadeIn">
             <img src="logo.png" alt="iSeguros Logo">
         </div>
         <nav>
@@ -69,33 +106,54 @@
                 <li><a href="nosotros.html">Sobre Nosotros</a></li>
                 <li><a href="seguros.html">Seguros</a></li>
                 <li><a href="aseguradoras.html">Aseguradoras</a></li>
-                <li><a href="faq.html">Preguntas</a></li>
-                <li><a href="cotizar.html">Cotizar</a></li>
+                <li><a href="faq.html">Preguntas Frecuentes</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
                 <li><a href="asistencia.html" class="asistencia-btn active">Asistencia 24/7</a></li>
             </ul>
         </nav>
     </header>
 
-    <main class="content-wrapper">
-        <div class="emergency-header animate__animated animate__pulse animate__infinite">
-            <h1><i class="fas fa-phone-volume"></i> ASISTENCIA 24/7</h1>
-            <p>Tu tranquilidad es nuestra prioridad. Si tuviste un accidente o necesitas asistencia urgente, contacta a tu aseguradora de inmediato.</p>
+    <main class="emergency-container">
+        
+        <div class="emergency-banner animate__animated animate__pulse animate__infinite">
+            <h1><i class="fas fa- ambulance"></i> ¡ESTAMOS CONTIGO!</h1>
+            <p>Si tuviste un accidente o necesitas asistencia inmediata, localiza tu aseguradora y llama ahora mismo.</p>
         </div>
 
         <div class="animate__animated animate__fadeInUp">
-            <div class="box">
-                <h3>AIG Seguros</h3>
-                <p>Atención inmediata en todo el país:</p>
-                <a href="tel:1800244244" class="phone-link"><i class="fas fa-phone"></i> 1800 AIG-AIG</a>
-                <a href="tel:022990711" class="phone-link"><i class="fas fa-headset"></i> (02) 2990711</a>
-                <a href="https://wa.me/593992431655" class="phone-link" style="color: #25d366;"><i class="fab fa-whatsapp"></i> 0992431655</a>
+            <div class="box-asistencia">
+                <div class="info-aseguradora">
+                    <h3>AIG Seguros</h3>
+                    <p>1800 AIG-AIG (244-244)</p>
+                    <p>Fijo: (02) 2990711</p>
+                    <a href="https://wa.me/593992431655" class="whatsapp-link"><i class="fab fa-whatsapp"></i> WhatsApp: 0992431655</a>
+                </div>
+                <a href="tel:1800244244" class="btn-call"><i class="fas fa-phone-alt"></i> LLAMAR AHORA</a>
             </div>
 
+            <div class="box-asistencia">
+                <div class="info-aseguradora">
+                    <h3>SaludSA</h3>
+                    <p>Asistencia médica inmediata</p>
+                    <p>1800 SALUDSA (725-837)</p>
+                </div>
+                <a href="tel:1800725837" class="btn-call"><i class="fas fa-phone-alt"></i> LLAMAR AHORA</a>
             </div>
+
+            <div class="box-asistencia">
+                <div class="info-aseguradora">
+                    <h3>Sweaden Seguros</h3>
+                    <p>Asistencia vehicular y siniestros</p>
+                    <p>1800 SWEADEN (793-233)</p>
+                </div>
+                <a href="tel:1800793233" class="btn-call"><i class="fas fa-phone-alt"></i> LLAMAR AHORA</a>
+            </div>
+        </div>
+
     </main>
 
     <footer>
-        <p>&copy; 2026 iSeguros | Cuenca, Ecuador</p>
+        <p>&copy; 2026 iSeguros | Atención de siniestros 24/7 | Cuenca, Ecuador</p>
     </footer>
 
     <a href="https://wa.me/593987801917" class="wsp-float" target="_blank">
