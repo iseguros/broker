@@ -18,7 +18,6 @@
     box-sizing: border-box;
 }
 
-/* Evita el desbordamiento lateral y necesidad de zoom */
 html, body {
     width: 100%;
     overflow-x: hidden;
@@ -26,9 +25,9 @@ html, body {
     color: var(--texto-oscuro);
     line-height: 1.6;
     background-color: var(--blanco);
+    scroll-behavior: smooth;
 }
 
-/* IMÁGENES RESPONSIVAS (No se saldrán de la pantalla) */
 img {
     max-width: 100%;
     height: auto;
@@ -36,33 +35,31 @@ img {
 }
 
 /* =========================================
-   HEADER Y NAVEGACIÓN (BLOQUE AZUL)
+   HEADER PROFESIONAL (ULTRA COMPACTO)
    ========================================= */
 header {
     background-color: var(--azul);
-    padding-top: 20px;
-    text-align: center;
     position: sticky;
     top: 0;
     z-index: 1000;
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     width: 100%;
+    padding: 15px 0 5px 0; /* Espaciado superior para el logo */
 }
 
 .logo-container {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .logo-container img {
-    max-width: 220px;
+    max-width: 200px;
     margin: 0 auto;
-    mix-blend-mode: multiply; 
+    transition: var(--transicion);
 }
 
 nav {
-    background-color: var(--azul);
-    padding: 10px 0;
-    border-top: 1px solid rgba(255,255,255,0.1);
+    width: 100%;
+    padding: 5px 0;
 }
 
 nav ul {
@@ -70,8 +67,9 @@ nav ul {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap; /* Clave para que no se amontone en móvil */
+    flex-wrap: wrap; 
     gap: 15px;
+    padding: 5px 10px;
 }
 
 nav ul li a {
@@ -81,7 +79,7 @@ nav ul li a {
     font-size: 0.85rem;
     text-transform: uppercase;
     transition: var(--transicion);
-    letter-spacing: 0.5px;
+    letter-spacing: 0.3px;
 }
 
 nav ul li a:hover, 
@@ -91,7 +89,7 @@ nav ul li a.active {
 
 .asistencia-btn {
     background-color: var(--rojo) !important;
-    padding: 6px 14px;
+    padding: 5px 12px;
     border-radius: 5px;
     animation: pulse-red 2s infinite;
     box-shadow: 0 4px 10px rgba(255, 75, 43, 0.4);
@@ -104,8 +102,49 @@ nav ul li a.active {
 }
 
 /* =========================================
-   HERO SECTION (PORTADA)
+   AJUSTES PARA CELULARES (EVITA BLOQUE GIGANTE)
    ========================================= */
+@media (max-width: 768px) {
+    header {
+        padding: 8px 0 2px 0; /* Reduce drásticamente la altura */
+    }
+
+    .logo-container {
+        margin-bottom: 2px;
+    }
+
+    .logo-container img {
+        max-width: 120px; /* Logo pequeño para ganar espacio */
+    }
+
+    nav {
+        padding: 2px 0;
+    }
+
+    nav ul {
+        gap: 8px; /* Botones más juntos */
+        padding: 2px 5px;
+    }
+
+    nav ul li a {
+        font-size: 0.62rem; /* Fuente compacta para que quepan en línea */
+    }
+
+    .asistencia-btn {
+        padding: 3px 7px;
+        font-size: 0.6rem !important;
+    }
+
+    /* Ajuste de Secciones para que el contenido respire */
+    .hero { height: 50vh; }
+    .section-padding { padding: 30px 0; }
+}
+
+/* =========================================
+   HERO Y SECCIONES (CONTENIDO MANTENIDO)
+   ========================================= */
+.container { width: 92%; max-width: 1100px; margin: auto; }
+
 .hero {
     height: 70vh;
     background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
@@ -116,166 +155,53 @@ nav ul li a.active {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
     color: white;
+    text-align: center;
     padding: 20px;
 }
 
-.hero h1 {
-    font-size: 2.8rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-}
+.section-title { text-align: center; margin-bottom: 40px; }
+.section-title h2 { font-size: 2rem; color: var(--azul); font-weight: 700; }
+.underline { width: 45px; height: 4px; background: var(--rojo); margin: 8px auto 15px; }
 
-.hero p {
-    font-size: 1.1rem;
-    max-width: 700px;
-    margin-bottom: 30px;
-}
-
-.btn-primary, .btn-emergency {
-    padding: 12px 25px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    display: inline-block;
-    margin: 8px;
-    transition: var(--transicion);
-}
-
-.btn-primary { background: var(--rojo); color: white; }
-.btn-emergency { background: white; color: var(--rojo); }
-
-/* =========================================
-   SECCIONES GENERALES Y SOBRE NOSOTROS
-   ========================================= */
-.section-padding { padding: 60px 0; }
-.container { width: 90%; max-width: 1100px; margin: auto; }
-
-.section-title { text-align: center; margin-bottom: 40px; position: relative; }
-.section-title h2 { font-size: 2rem; color: var(--azul); font-weight: 700; text-transform: uppercase; }
-.underline { width: 50px; height: 4px; background: var(--rojo); margin: 10px auto 20px; }
-
-.about-flex {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-    flex-wrap: wrap;
-}
-
-.about-text, .about-image { flex: 1; min-width: 300px; }
-.about-image img { border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
-
-/* =========================================
-   PRODUCTOS (GRID)
-   ========================================= */
+/* GRID DE PRODUCTOS E IMÁGENES */
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 25px;
 }
 
 .service-card {
     background: white;
-    padding: 35px 20px;
+    padding: 30px 20px;
     border-radius: 15px;
     text-align: center;
-    transition: var(--transicion);
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: var(--transicion);
 }
 
-.service-card i {
-    font-size: 2.5rem;
-    color: var(--azul);
-    margin-bottom: 15px;
-}
-
-/* =========================================
-   CONTACTO Y FOOTER
-   ========================================= */
-.contact-strip {
-    background-color: var(--azul-dark);
+/* WHATSAPP Y FOOTER */
+.wsp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25d366;
     color: white;
-    padding: 50px 0;
-}
-
-.contact-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    text-align: center;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    z-index: 2000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
 footer {
     background-color: #111;
     color: #999;
-    padding: 30px;
+    padding: 25px;
     text-align: center;
-}
-
-.wsp-float {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    background-color: #25d366;
-    color: white;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 30px;
-    z-index: 2000;
-}
-
-/* =========================================
-   CORRECCIONES EXCLUSIVAS PARA CELULARES
-   ========================================= */
-@media (max-width: 768px) {
-    header {
-        padding-top: 10px; /* Menú mucho más estrecho arriba */
-    }
-
-    .logo-container img {
-        max-width: 150px; /* Logo discreto para ahorrar espacio */
-    }
-
-    nav {
-        padding: 5px 0;
-    }
-
-    nav ul {
-        gap: 8px; /* Espacio reducido entre botones */
-        padding: 0 10px;
-    }
-
-    nav ul li {
-        margin: 2px 0;
-    }
-
-    nav ul li a {
-        font-size: 0.65rem; /* Texto pequeño pero legible */
-    }
-
-    .asistencia-btn {
-        padding: 4px 8px; /* Botón de emergencia compacto */
-    }
-
-    /* Ajuste de Secciones */
-    .hero h1 { font-size: 1.8rem; }
-    .hero p { font-size: 0.95rem; }
-    
-    .section-padding { padding: 40px 0; }
-
-    .about-flex {
-        flex-direction: column-reverse; /* Texto primero, imagen después */
-        text-align: center;
-    }
-
-    .about-image {
-        min-width: 100%; /* La imagen ya no se sale de la pantalla */
-    }
-
-    .section-title h2 { font-size: 1.6rem; }
+    font-size: 0.85rem;
 }
