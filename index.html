@@ -227,6 +227,28 @@
     </div>
 </footer>
 
+<script>
+    // --- LÓGICA DEL CARRUSEL SOBRE NOSOTROS ---
+    let currentSlide = 0;
+    const slides = document.querySelectorAll(".about-slideshow .slide");
+
+    function showNextSlide() {
+        // 1. Quitar la clase 'active' de la imagen actual
+        slides[currentSlide].classList.remove("active");
+
+        // 2. Calcular el índice de la siguiente imagen
+        currentSlide = (currentSlide + 1) % slides.length;
+
+        // 3. Añadir la clase 'active' a la nueva imagen
+        slides[currentSlide].classList.add("active");
+    }
+
+    // Ejecutar la función cada 3000 milisegundos (3 segundos)
+    if (slides.length > 0) {
+        setInterval(showNextSlide, 3000);
+    }
+</script>
+
     
 </body>
 </html>
