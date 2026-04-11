@@ -1,123 +1,107 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Preguntas Frecuentes | iSeguros</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <link rel="stylesheet" href="style.css">
-
-    <style>
-        .faq-main {
-            max-width: 900px;
-            margin: 60px auto;
-            padding: 0 20px;
-        }
-
-        .faq-item {
-            background: #fff;
-            margin-bottom: 15px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            overflow: hidden;
-            border-left: 5px solid var(--azul);
-            transition: 0.3s;
-        }
-
-        .faq-question {
-            padding: 22px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 600;
-            color: var(--azul-dark);
-        }
-
-        .faq-answer {
-            padding: 0 22px;
-            max-height: 0;
-            overflow: hidden;
-            transition: all 0.3s ease-in-out;
-            color: #555;
-            background: #fdfdfd;
-        }
-
-        .faq-item.active {
-            border-left-color: var(--rojo);
-        }
-
-        .faq-item.active .faq-answer {
-            max-height: 250px;
-            padding: 0 22px 22px 22px;
-        }
-
-        .faq-item.active .fa-chevron-down {
-            transform: rotate(180deg);
-            color: var(--rojo);
-        }
-
-        .fa-chevron-down {
-            transition: 0.3s;
-            font-size: 0.9rem;
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <div class="logo-container animate__animated animate__fadeIn">
-            <img src="logo.png" alt="iSeguros Logo">
-        </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="asistencia.html" class="asistencia-btn">Asistencia 24/7</a></li>
-                <li><a href="faq.html" class="active">Preguntas Frecuentes</a></li>
-                <li><a href="seguros.html">Productos</a></li>
-                <li><a href="cotizar.html">Cotizar</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main class="faq-main animate__animated animate__fadeInUp">
-        <div class="section-title">
-            <h2>Preguntas Frecuentes</h2>
-            <div class="underline"></div>
-            <p style="text-align: center; color: #777; margin-bottom: 40px;">Todo lo que necesitas saber sobre tus seguros y nuestra asesoría.</p>
-        </div>
-
-        <div class="faq-list">
+<div class="faq-list">
             <div class="faq-item">
                 <div class="faq-question">
-                    ¿Qué documentos necesito para cotizar mi seguro vehicular?
+                    ¿Qué debo hacer en caso de un siniestro o accidente?
                     <i class="fas fa-chevron-down"></i>
                 </div>
                 <div class="faq-answer">
-                    <p>Para una cotización precisa, solo necesitamos los datos básicos del vehículo: marca, modelo, año y el valor comercial estimado. En algunos casos, el número de placa ayuda a verificar beneficios adicionales.</p>
+                    <p>Mantén la calma y sigue estos tres pasos clave: 
+                    1. <strong>Documenta:</strong> Toma fotos de los daños y el lugar desde varios ángulos. 
+                    2. <strong>Informa:</strong> Indica a los involucrados que cuentas con seguro. 
+                    3. <strong>Llámanos:</strong> Contacta a tu asesor de iSeguros de inmediato; atendemos las 24 horas para guiarte y asegurar que recibas atención sin demora.</p>
                 </div>
             </div>
 
             <div class="faq-item">
                 <div class="faq-question">
-                    ¿La asesoría de iSeguros tiene algún costo extra?
+                    ¿Qué pasa si la aseguradora no quiere cubrir mi siniestro?
                     <i class="fas fa-chevron-down"></i>
                 </div>
                 <div class="faq-answer">
-                    <p>No, nuestra asesoría técnica y el acompañamiento durante la vigencia de tu póliza no tienen costo para ti. Recibimos nuestra gestión directamente por parte de las aseguradoras del país.</p>
+                    <p>Como tu broker, somos tus representantes ante la aseguradora. Si surge una objeción, analizamos los términos de tu contrato para defender tu derecho a la cobertura y gestionar una solución justa. No estás solo; nosotros peleamos por tus intereses.</p>
                 </div>
             </div>
 
             <div class="faq-item">
                 <div class="faq-question">
-                    ¿Cómo procedo en caso de un siniestro o accidente?
+                    ¿Qué necesito para cotizar mi seguro?
                     <i class="fas fa-chevron-down"></i>
                 </div>
                 <div class="faq-answer">
-                    <p>Lo primero es mantener la calma. Debes comunicarte de inmediato con los números que aparecen en nuestra sección de <strong>Asistencia 24/7</strong> para reportar el evento y recibir instrucciones claras de tu aseguradora.</p>
+                    <p>Requerimos datos mínimos según el plan: 
+                    <strong>Vehículos:</strong> Cédula, placa y valor comercial estimado. 
+                    <strong>Salud:</strong> Edad, ciudad y condiciones previas. 
+                    <strong>Hogar:</strong> Dirección y valor estimado de tus bienes.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    ¿Qué documentos necesito para contratar el seguro por primera vez?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Para vehículos requerimos: cédula, matrícula y licencia de conducir. Para otros seguros (hogar o vida), solo necesitamos tu cédula y una planilla de servicios básicos para verificar tu dirección de domicilio.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    ¿Puedo llevar mi vehículo a cualquier taller para la reparación?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Las aseguradoras tienen redes de talleres autorizados con garantía de calidad. Si prefieres un taller externo de tu confianza, la reparación se manejaría bajo la modalidad de <strong>reembolso</strong>, ajustándose a las tarifas y condiciones de tu póliza.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    ¿Qué es el deducible y cuándo debo pagarlo?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Es el monto fijo o porcentaje que te corresponde asumir en cada evento cubierto. Solo se paga cuando decides usar la cobertura del seguro para una reparación, permitiendo que la aseguradora cubra el resto de los costos más altos.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    ¿Puedo cambiar de aseguradora si ya tengo una póliza vigente?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Sí, puedes hacerlo en cualquier momento. Nosotros gestionamos el cambio para que obtengas mejores beneficios o un precio más bajo, garantizando que nunca te quedes sin protección durante la transición.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    ¿Mi seguro me cubre si viajo fuera de la ciudad o del país?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Tienes cobertura nacional completa en todo el Ecuador. Para viajes al exterior (como Perú o Colombia), existen extensiones específicas; consúltanos antes de viajar para activar la cobertura territorial correspondiente.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    ¿El precio de mi seguro bajará cuando mi auto cumpla otro año?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Sí. En cada renovación, revisamos automáticamente tu póliza para ajustar la prima según la depreciación de tu vehículo, asegurando que siempre pagues lo justo acorde al valor real del mercado actual.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    ¿Qué pasa con mi seguro si decido vender mi auto antes de que termine el año?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>No pierdes tu dinero. Podemos solicitar la devolución de la parte de la prima no utilizada (extorno) o transferir ese saldo a favor para proteger tu nuevo vehículo de forma inmediata.</p>
                 </div>
             </div>
 
@@ -127,34 +111,17 @@
                     <i class="fas fa-chevron-down"></i>
                 </div>
                 <div class="faq-answer">
-                    <p>Trabajamos con las compañías más sólidas del mercado ecuatoriano, incluyendo AIG Metropolitana, SaludSA, Sweaden, Zurich, Generali y Vaz Seguros.</p>
+                    <p>Tenemos agenciamiento con las compañías más sólidas del país (Sweaden, Mapfre, Latina, entre otras). Esto nos permite comparar todo el mercado por ti y presentarte la oferta más competitiva para tu auto, hogar o salud.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    ¿La asesoría de iSeguros tiene algún costo extra?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>No, nuestra asesoría técnica y el acompañamiento durante toda la vigencia de tu póliza no tienen costo para ti. El valor de tu seguro es el mismo que en la aseguradora, pero con el beneficio de un experto defendiendo tus intereses.</p>
                 </div>
             </div>
         </div>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 iSeguros | Resolviendo tus dudas en Cuenca, Ecuador</p>
-    </footer>
-
-    <a href="https://wa.me/593987801917" class="wsp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <script>
-        document.querySelectorAll('.faq-question').forEach(button => {
-            button.addEventListener('click', () => {
-                const faqItem = button.parentElement;
-                faqItem.classList.toggle('active');
-
-                // Cerrar otros al abrir uno nuevo
-                document.querySelectorAll('.faq-item').forEach(item => {
-                    if (item !== faqItem) {
-                        item.classList.remove('active');
-                    }
-                });
-            });
-        });
-    </script>
-</body>
-</html>
