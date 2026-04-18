@@ -49,9 +49,9 @@
             outline: none;
         }
 
-        /* --- NUEVO DISEÑO DE LISTA VERTICAL (ACORDEÓN) --- */
+        /* --- LISTA VERTICAL --- */
         .emergency-list {
-            max-width: 800px; /* Ancho optimizado para lectura vertical */
+            max-width: 800px;
             margin: 0 auto 50px;
             display: flex;
             flex-direction: column;
@@ -103,13 +103,8 @@
             background: #fcfcfc;
         }
 
-        .asistencia-card.active {
-            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-            margin: 5px 0;
-        }
-
         .asistencia-card.active .info-desplegable {
-            max-height: 600px;
+            max-height: 800px;
             opacity: 1;
             padding: 0 25px 25px;
             border-top: 1px solid #f0f0f0;
@@ -128,19 +123,24 @@
             color: #444;
         }
 
-        .detalle-item p { margin: 0; font-weight: 500; }
-        .detalle-item i { margin-right: 8px; color: var(--rojo); width: 18px; }
+        /* Variante para filas con múltiples números */
+        .detalle-item-fila {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-top: 15px;
+        }
 
-        /* Lista de números (para Sweaden y otros) */
+        .detalle-item p, .detalle-item-fila p { margin: 0; font-weight: 500; }
+        .detalle-item i, .detalle-item-fila i { margin-right: 8px; color: var(--rojo); width: 18px; }
+
         .lista-numeros {
             display: flex;
             flex-direction: column;
-            gap: 8px;
-            margin-top: 15px;
-            padding-left: 26px; /* Alineación bajo el texto del icono */
+            gap: 5px;
+            text-align: right;
         }
 
-        /* Badges de horario */
         .horario-badge {
             background: white;
             padding: 6px 14px;
@@ -222,9 +222,7 @@
             
             <div class="asistencia-card" onclick="toggleCard(this)">
                 <div class="card-main-info">
-                    <div class="asistencia-info">
-                        <h3>ALIANZA SEGUROS</h3>
-                    </div>
+                    <div class="asistencia-info"><h3>ALIANZA SEGUROS</h3></div>
                     <div class="btn-expand"><i class="fas fa-chevron-down"></i></div>
                 </div>
                 <div class="info-desplegable">
@@ -245,9 +243,7 @@
 
             <div class="asistencia-card" onclick="toggleCard(this)">
                 <div class="card-main-info">
-                    <div class="asistencia-info">
-                        <h3>LATINA SEGUROS</h3>
-                    </div>
+                    <div class="asistencia-info"><h3>LATINA SEGUROS</h3></div>
                     <div class="btn-expand"><i class="fas fa-chevron-down"></i></div>
                 </div>
                 <div class="info-desplegable">
@@ -268,32 +264,7 @@
 
             <div class="asistencia-card" onclick="toggleCard(this)">
                 <div class="card-main-info">
-                    <div class="asistencia-info">
-                        <h3>SEGUROS ATLÁNTIDA</h3>
-                    </div>
-                    <div class="btn-expand"><i class="fas fa-chevron-down"></i></div>
-                </div>
-                <div class="info-desplegable">
-                    <div class="detalle-item">
-                        <p><i class="fas fa-truck-pickup"></i> Grúa-Asistencia 24/7:</p>
-                        <a href="https://wa.me/593984900754" target="_blank" class="numero-link">098 490 0754</a>
-                    </div>
-                    <div class="detalle-item">
-                        <p><i class="fas fa-clock"></i> Horario Oficina:</p>
-                        <div class="horario-badge">
-                            <span class="dias">Lunes a Viernes</span>
-                            <span class="horas">8h30 a 17h30</span>
-                        </div>
-                    </div>
-                    <a href="https://www.segurosatlantida.ec/nuestras-sucursales" target="_blank" class="link-aseguradora">Ubícanos <i class="fas fa-external-link-alt"></i></a>
-                </div>
-            </div>
-
-            <div class="asistencia-card" onclick="toggleCard(this)">
-                <div class="card-main-info">
-                    <div class="asistencia-info">
-                        <h3>MAPFRE SEGUROS</h3>
-                    </div>
+                    <div class="asistencia-info"><h3>MAPFRE SEGUROS</h3></div>
                     <div class="btn-expand"><i class="fas fa-chevron-down"></i></div>
                 </div>
                 <div class="info-desplegable">
@@ -314,32 +285,27 @@
 
             <div class="asistencia-card" onclick="toggleCard(this)">
                 <div class="card-main-info">
-                    <div class="asistencia-info">
-                        <h3>SWEADEN SEGUROS</h3>
-                    </div>
+                    <div class="asistencia-info"><h3>SWEADEN SEGUROS</h3></div>
                     <div class="btn-expand"><i class="fas fa-chevron-down"></i></div>
                 </div>
                 <div class="info-desplegable">
-                    <div class="detalle-item-fila" style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px;">
-                         <p style="margin: 0; white-space: nowrap;">
-                             <i class="fas fa-truck-pickup"></i> Grúa-Asistencia 24/7:
-                         </p>
-                    <div class="lista-numeros" style="text-align: right; display: flex; flex-direction: column;">
-                        <a href="tel:0997143551" class="numero-link">099 714 3551</a>
-                        <a href="tel:0997345298" class="numero-link">099 734 5298</a>
-                        <a href="tel:0983899042" class="numero-link">098 389 9042</a>
+                    <div class="detalle-item-fila">
+                         <p><i class="fas fa-truck-pickup"></i> Grúa-Asistencia 24/7:</p>
+                         <div class="lista-numeros">
+                            <a href="tel:0997143551" class="numero-link">099 714 3551</a>
+                            <a href="tel:0997345298" class="numero-link">099 734 5298</a>
+                            <a href="tel:0983899042" class="numero-link">098 389 9042</a>
+                         </div>
                     </div>
-                    <div class="detalle-item" style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px;">
-    
-                        <p style="margin: 0;">
-                            <i class="fas fa-clock"></i> Horario Oficina:
-                        </p>
-
-                        <div class="horario-badge" style="text-align: right;">
-                            <span class="dias" style="display: block; font-size: 0.8rem; color: #666;">Lunes a Viernes</span>
-                            <span class="horas" style="font-weight: bold; color: #004a8e;">8h30 a 17h30</span>
+                    
+                    <div class="detalle-item">
+                        <p><i class="fas fa-clock"></i> Horario Oficina:</p>
+                        <div class="horario-badge">
+                            <span class="dias">Lunes a Viernes</span>
+                            <span class="horas">8h30 a 17h30</span>
                         </div>
                     </div>
+
                     <a href="https://sweadenseguros.com/contacto/" target="_blank" class="link-aseguradora">Ubícanos <i class="fas fa-external-link-alt"></i></a>
                 </div>
             </div>
@@ -363,11 +329,9 @@
 
     <script>
         function toggleCard(card) {
-            // Cierra las demás tarjetas al abrir una nueva
             document.querySelectorAll('.asistencia-card').forEach(c => {
                 if (c !== card) c.classList.remove('active');
             });
-            // Abre o cierra la tarjeta actual
             card.classList.toggle('active');
         }
 
@@ -378,11 +342,7 @@
 
             cards.forEach(card => {
                 let nombre = card.querySelector('h3').innerText.toLowerCase();
-                if (nombre.includes(filter)) {
-                    card.style.display = "flex";
-                } else {
-                    card.style.display = "none";
-                }
+                card.style.display = nombre.includes(filter) ? "flex" : "none";
             });
         }
     </script>
