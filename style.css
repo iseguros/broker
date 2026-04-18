@@ -1195,25 +1195,29 @@ nav ul {
     letter-spacing: 0.5px;
 }
 
-
-/* Contenedor que agrupa los números */
+/* Contenedor principal de los números */
 .lista-telefonos {
-    display: flex !important;
-    flex-direction: column !important; /* Fuerza el orden vertical */
-    gap: 10px !important; /* Espacio entre cada número */
+    display: block !important; /* Cambiamos a block para asegurar el flujo vertical */
     margin-top: 10px !important;
-    padding-left: 32px !important; /* Alinea los números debajo del texto, no del icono */
+    padding-left: 32px !important;
 }
 
-/* Estilo individual para cada número */
+/* Cada número individual */
 .numero-link {
-    display: inline-block !important;
-    color: #ff4d00 !important; /* Tu naranja corporativo */
+    display: block !important; /* ESTA ES LA CLAVE: obliga a cada número a ocupar TODA la línea */
+    color: #ff4d00 !important;
     font-weight: 700 !important;
     text-decoration: none !important;
-    font-size: 1.1rem !important;
+    font-size: 1.15rem !important;
+    margin-bottom: 8px !important; /* Espacio entre un número y otro */
+    width: fit-content; /* Para que el área de clic sea solo el número */
+}
+
+.numero-link:last-child {
+    margin-bottom: 0 !important;
 }
 
 .numero-link:hover {
     text-decoration: underline !important;
+    color: #e64500 !important;
 }
