@@ -1194,3 +1194,26 @@ nav ul {
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
     letter-spacing: 0.5px;
 }
+
+
+/* Contenedor que agrupa los números */
+.lista-telefonos {
+    display: flex !important;
+    flex-direction: column !important; /* Fuerza el orden vertical */
+    gap: 10px !important; /* Espacio entre cada número */
+    margin-top: 10px !important;
+    padding-left: 32px !important; /* Alinea los números debajo del texto, no del icono */
+}
+
+/* Estilo individual para cada número */
+.numero-link {
+    display: inline-block !important;
+    color: #ff4d00 !important; /* Tu naranja corporativo */
+    font-weight: 700 !important;
+    text-decoration: none !important;
+    font-size: 1.1rem !important;
+}
+
+.numero-link:hover {
+    text-decoration: underline !important;
+}
