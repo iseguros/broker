@@ -1279,3 +1279,18 @@ nav ul {
 .acordeon-item.active .acordeon-header i {
     transform: rotate(180deg);
 }
+
+
+.contacto-fila {
+    display: flex;
+    justify-content: space-between; /* Esto empuja los números a la derecha */
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.numeros-derecha {
+    color: #ff5722; /* El naranja que estás usando */
+    font-weight: bold;
+    text-align: right;
+}
