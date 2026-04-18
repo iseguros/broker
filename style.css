@@ -1221,3 +1221,61 @@ nav ul {
     text-decoration: underline !important;
     color: #e64500 !important;
 }
+
+
+
+
+.acordeon-contenedor {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 0 15px;
+}
+
+.acordeon-item {
+    background: #fff;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    overflow: hidden;
+    border: 1px solid #eee;
+}
+
+.acordeon-header {
+    width: 100%;
+    padding: 20px;
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    color: #003366; /* El azul de iSeguros */
+    font-size: 1.1rem;
+    transition: background 0.3s;
+}
+
+.acordeon-header:hover {
+    background: #f9f9f9;
+}
+
+.acordeon-contenido {
+    max-height: 0; /* Oculto por defecto */
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+    background: #fafafa;
+}
+
+.detalle-asistencia {
+    padding: 20px;
+    border-top: 1px solid #eee;
+}
+
+/* Cuando el acordeón esté abierto */
+.acordeon-item.active .acordeon-contenido {
+    max-height: 1000px; /* Suficiente para el contenido */
+}
+
+.acordeon-item.active .acordeon-header i {
+    transform: rotate(180deg);
+}
